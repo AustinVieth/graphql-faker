@@ -8,6 +8,7 @@ type Options = {
   extendURL: string | undefined;
   headers: { [key: string]: string };
   forwardHeaders: [string];
+  skipValidation: boolean;
 };
 
 function builder(cmd) {
@@ -90,6 +91,7 @@ export function parseCLI(commandCB: (options: Options) => void) {
       extendURL: argv.extend,
       headers: argv.header || {},
       forwardHeaders: argv.forwardHeaders || [],
+      skipValidation: argv.skipValidation || false
     });
   }
 }
