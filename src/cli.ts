@@ -46,6 +46,12 @@ function builder(cmd) {
         type: 'string',
         requiresArg: true,
       },
+      skipValidation: {
+        alias: 'sv',
+        describe: 'Determines whether or not to run validation on the remote schema',
+        type: 'boolean',
+        requiresArg: true
+      },
       header: {
         alias: 'H',
         describe:
