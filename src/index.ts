@@ -85,7 +85,7 @@ function runServer(
   remoteSDL?: Source,
   customExecuteFn?,
 ) {
-  const { port, openEditor } = options;
+  const { port, openEditor, skipValidation } = options;
   const corsOptions = {
     credentials: true,
     origin: options.corsOrigin,
@@ -95,7 +95,7 @@ function runServer(
   let schema;
   try {
     schema = remoteSDL
-      ? buildWithFakeDefinitions(remoteSDL, userSDL)
+      ? buildWithFakeDefinitions(remoteSDL, userSDL, { skipValidation })
       : buildWithFakeDefinitions(userSDL);
   } catch (error) {
     if (error instanceof ValidationErrors) {
